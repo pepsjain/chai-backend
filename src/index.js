@@ -1,7 +1,15 @@
 import mongoose from "mongoose";
 // import {DB_NAME} from "./constants";
 import express from 'express';
+import cors from 'cors';
+
 const app = express();
+
+app.use(cors({
+    origin: "*" , //process.env.CORS_ORIGIN,
+    credentials: true
+}))
+
 ;( async () => {
     try{
         await mongoose.connect('mongodb+srv://prachitruejain:Prachi123@cluster0.fuwqeno.mongodb.net') //`${process.env.MONGODB_URI}/`)
